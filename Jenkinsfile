@@ -37,8 +37,10 @@ pipeline {
         stage('Install & Test') {
             steps {
                 sh '''
-                    if [ -f package-lock.json ]; then npm ci; else npm install; fi
-                    npm test
+                    docker run --rm -v $(pwd):/app -w /app node:22-alpine sh -c '
+                        if [ -f package-lock.json ]; then npm ci; else npm install; fi
+                        npm test
+                    '
                 '''
             }
         }
