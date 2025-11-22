@@ -12,8 +12,8 @@ pipeline {
     // กำหนด environment variables
     environment {
         DOCKER_HUB_CREDENTIALS_ID = 'dockerhub-cred'
-        DOCKER_REPO               = "kritchanaxt/express-docker-app-jenkins"
-        APP_NAME                  = "express-docker-app-jenkins"
+        DOCKER_REPO = "kritchanaxt/express-docker-app-jenkins"
+        APP_NAME = "express-docker-app-jenkins"
     }
 
     // กำหนด stages ของ Pipeline
@@ -116,12 +116,6 @@ pipeline {
                     docker run -d --name ${APP_NAME} -p 3000:3000 ${DOCKER_REPO}:latest
                     docker ps --filter name=${APP_NAME} --format "table {{.Names}}\\t{{.Image}}\\t{{.Status}}"
                 """
-            }
-            // ส่งข้อมูลไปยัง n8n webhook เมื่อ deploy สำเร็จ
-            post {
-                success {
-                    sendNotificationToN8n('deployed', 'Deploy Local')
-                }
             }
         }
     }
