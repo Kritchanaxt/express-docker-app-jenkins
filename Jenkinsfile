@@ -1,8 +1,8 @@
 pipeline {
 
-    tool {
+    tools {
         // กำหนด NodeJS version ที่ติดตั้งใน Jenkins
-        nodejs 'nodejs'
+        nodejs "nodejs"
     }
   
     // ใช้ any agent เพื่อหลีกเลี่ยงปัญหา Docker path mounting บน Windows
