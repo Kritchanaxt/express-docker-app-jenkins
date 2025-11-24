@@ -64,6 +64,7 @@ pipeline {
         DOCKER_HUB_CREDENTIALS_ID = 'dockerhub-cred'
         DOCKER_REPO = "kritchanaxt/express-docker-app-jenkins"
         APP_NAME  = "express-docker-app-jenkins"
+        PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${env.PATH}"
     }
 
     // กำหนด stages ของ Pipeline
