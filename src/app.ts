@@ -29,7 +29,7 @@ app.get('/api/health', (_: Request, res: Response) => {
 // GET /api/users
 app.get('/api/users', (_: Request, res: Response) => {
   const users = [
-    { id: 1, name: 'My name is Gotjitag' }
+    { id: 1, name: 'My name is Gotjitag E3 Mak Mak' }
   ]
   res.json(users)
 }) 
